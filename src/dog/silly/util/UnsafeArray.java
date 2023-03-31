@@ -1,14 +1,14 @@
-package util;
+package dog.silly.util;
 
-import util.internal.UnsafeUtils;
-import util.internal.stdlib;
+import dog.silly.util.internal.UnsafeUtils;
+import dog.silly.util.internal.stdlib;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.RandomAccess;
 
-import static util.internal.stdlib.*;
+import static dog.silly.util.internal.stdlib.*;
 
 /**
  * A memory-unsafe array implementation that can contain {@link Long#MAX_VALUE} {@code /} {@link stdlib#SIZEOF_PTR}

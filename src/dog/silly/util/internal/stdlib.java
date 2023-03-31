@@ -1,4 +1,4 @@
-package util.internal;
+package dog.silly.util.internal;
 
 public final @SuppressWarnings("all") class stdlib {
     public static final long SIZEOF_PTR = UnsafeUtils.getUnsafe().arrayIndexScale(Object[].class);

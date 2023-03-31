@@ -1,4 +1,4 @@
-package util.internal;
+package dog.silly.util.internal;
 
 import sun.misc.Unsafe;
 
