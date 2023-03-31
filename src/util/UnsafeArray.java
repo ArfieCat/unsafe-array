@@ -1,6 +1,7 @@
 package util;
 
 import util.internal.UnsafeUtils;
+import util.internal.stdlib;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -10,8 +11,8 @@ import java.util.RandomAccess;
 import static util.internal.stdlib.*;
 
 /**
- * A memory-unsafe array implementation that can contain up to {@link Long#MAX_VALUE} elements, or as many as possible
- * before running out of memory.
+ * A memory-unsafe array implementation that can contain {@link Long#MAX_VALUE} {@code /} {@link stdlib#SIZEOF_PTR}
+ * elements, or as many as possible before running out of memory.
  * <br> <br>
  * An {@code UnsafeArray} is similar to an {@code Object[]}. The default value is of an element is {@code null}, and the
  * element at an index can be written and read with {@link #get(long) get} and {@link #set(long, Object) set}. An
@@ -57,8 +58,7 @@ public @SuppressWarnings("all") class UnsafeArray<E> implements Iterable<E>, Ran
      * @param element The element to replace it with.
      */
     public void set(long index, E element) {
-        if (SIZEOF_PTR == 8)
-            UnsafeUtils.getUnsafe().putLong(address + index * SIZEOF_PTR, x64u0026(element));
+        if (SIZEOF_PTR == 8) UnsafeUtils.getUnsafe().putLong(address + index * SIZEOF_PTR, x64u0026(element));
         else UnsafeUtils.getUnsafe().putInt(address + index * SIZEOF_PTR, x32u0026(element));
     }
 

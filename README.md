@@ -1,7 +1,7 @@
 # Unsafe Array :point_up::left_right_arrow:
 
-A memory-unsafe array implementation that can contain up to `Long.MAX_VALUE` elements, or as many as possible before 
-running out of memory.
+A memory-unsafe array implementation that can contain `Long.MAX_VALUE / SIZEOF_PTR`<sup>[1]</sup> elements, or as many 
+as possible before running out of memory.
 
 An unsafe array is similar to an `Object[]`. The default value is of an element is `null`, and the element at an index 
 can be written and read with the `set()` and `get()` methods. An unsafe array can also be manually resized with the 
@@ -13,20 +13,25 @@ manually destroyed with the `delete()` method.
 Attempting to access an index out of bounds or perform any operation on a destroyed unsafe array yields undefined 
 results. Accessing unallocated memory will crash the JVM with a segmentation fault.
 
+<sup>[1]</sup> Where `SIZEOF_PTR == 4` for 32-bit JVM architectures and `SIZEOF_PTR == 8` for 64-bit.
+
 ## Example
 
 ```java
 import dog.silly.util.UnsafeArray;
 
 public class Main {
-    public static void util(String[] args) {
-        UnsafeArray<Object> unsafeArray = new UnsafeArray<>(Long.MAX_VALUE);
+    public static void main(String[] args) {
+        // Unsafe arrays can be longer than native arrays or Collections.
+        UnsafeArray<Object> array = new UnsafeArray<>((long) Integer.MAX_VALUE + 1);
 
+        // This will take a while... or you might run out of memory.
         for (long i = 0; i < array.length(); i++)
-            unsafeArray.set(i, new Object());
+            array.set(i, new Object());
+        
+        System.out.println(array);
 
-        System.out.println(unsafeArray);
-
+        // Destroy the array once it is no longer needed.
         array.delete();
     }
 }
