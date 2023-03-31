@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"dog.silly.util.internal","l":"stdlib"},{"p":"dog.silly.util","l":"UnsafeArray"},{"p":"dog.silly.util.internal","l":"UnsafeUtils"}]
