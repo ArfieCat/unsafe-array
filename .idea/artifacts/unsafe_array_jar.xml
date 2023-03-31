@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="unsafe-array:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/unsafe_array_jar</output-path>
+    <root id="archive" name="unsafe-array.jar">
+      <element id="directory" name="dog.silly">
+        <element id="module-output" name="unsafe-array" />
+      </element>
+      <element id="module-source" name="unsafe-array" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
