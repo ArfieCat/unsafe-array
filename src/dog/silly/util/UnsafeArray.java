@@ -32,7 +32,6 @@ public @SuppressWarnings("all") class UnsafeArray<E> implements Iterable<E>, Ran
      * Constructs a new array with all elements initialized to {@code null}.
      *
      * @param length The length of the array.
-     * @throws OutOfMemoryError
      */
     public UnsafeArray(long length) {
         address = malloc(length * SIZEOF_PTR);
@@ -43,7 +42,6 @@ public @SuppressWarnings("all") class UnsafeArray<E> implements Iterable<E>, Ran
      * Constructs a new array with the same length and elements as an existing array.
      *
      * @param array The array to copy.
-     * @throws OutOfMemoryError
      */
     public UnsafeArray(UnsafeArray<E> array) {
         this(array.length);
@@ -78,7 +76,6 @@ public @SuppressWarnings("all") class UnsafeArray<E> implements Iterable<E>, Ran
      * Resizes this array, with any new elements initialized to {@code null}.
      *
      * @param length The new length of the array.
-     * @throws OutOfMemoryError
      */
     public void resize(long length) {
         address = realloc(address, length * SIZEOF_PTR);
