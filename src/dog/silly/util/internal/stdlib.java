@@ -16,7 +16,7 @@ public final @SuppressWarnings("all") class stdlib {
      * 32-bit implementation of the reference operator, effectively {@code &object}.
      *
      * @param object The object to reference.
-     * @return A pointer to the object.
+     * @return The pointer.
      */
     public static int x32u0026(Object object) {
         HEAP[0] = object;
